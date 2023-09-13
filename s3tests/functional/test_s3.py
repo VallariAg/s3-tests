@@ -138,6 +138,7 @@ def test_versioning_obj_read_not_exist_null():
 
     key = bucket.get_key(objname, version_id='null')
     assert key == None
+    assert 1 == 2
 
 @pytest.mark.fails_on_aws
 @pytest.mark.fails_with_subdomain
@@ -159,6 +160,7 @@ def test_append_object():
 
     key = bucket.get_key('foo')
     assert key.size == 6 
+    assert 1 == 2
 
 @pytest.mark.fails_on_aws
 @pytest.mark.fails_with_subdomain
@@ -175,6 +177,7 @@ def test_append_normal_object():
     path = path + '&append&position=3'
     res = _make_raw_request(host=s3.main.host, port=s3.main.port, method='PUT', path=path, body='abc', secure=s3.main.is_secure)
     assert res.status == 409
+    assert 1 == 2
 
 
 @pytest.mark.fails_on_aws
@@ -194,6 +197,7 @@ def test_append_object_position_wrong():
     res = _make_raw_request(host=s3.main.host, port=s3.main.port, method='PUT', path=path2, body='abc', secure=s3.main.is_secure)
     assert res.status == 409
     assert int(res.getheader('x-rgw-next-append-position')) == 3
+    assert 1 == 2
 
 
 # TODO rgw log_bucket.set_as_logging_target() gives 403 Forbidden
