@@ -138,7 +138,7 @@ def test_versioning_obj_read_not_exist_null():
 
     key = bucket.get_key(objname, version_id='null')
     assert key == None
-    assert 1 == 2
+    assert "a really really really long text to show how error messages are trimmed" == "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard"
 
 @pytest.mark.fails_on_aws
 @pytest.mark.fails_with_subdomain
